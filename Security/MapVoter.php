@@ -26,37 +26,37 @@ class MapVoter extends Voter
             return false;
         }
 
-        if (!$subject instanceof Event) {
+        if (!$subject instanceof Map) {
             return false;
         }
 
         return true;
     }
 
-    protected function voteOnAttribute($attribute, $event, TokenInterface $token)
+    protected function voteOnAttribute($attribute, $map, TokenInterface $token)
     {
         $user = $token->getUser();
 
         switch ($attribute) {
             case self::VIEW:
-                return $this->canView($event, $user);
+                return $this->canView($map, $user);
             case self::EDIT:
-                return $this->canEdit($event, $user);
+                return $this->canEdit($map, $user);
         }
 
         throw new \LogicException('This code should not be reached!');
     }
 
-    private function canView(Event $event, $user)
+    private function canView(Map $map, $user)
     {
-        if ($event->isPrivate() && !$this->security->isGranted('ROLE_MEMBER')) {
+        if ($map->isPrivate() && !$this->security->isGranted('ROLE_MEMBER')) {
             return false;
         }
 
         return true;
     }
 
-    private function canEdit(Event $event, $user)
+    private function canEdit(Map $map, $user)
     {
         if ($this->security->isGranted('ROLE_WEBMASTER')) {
             return true;

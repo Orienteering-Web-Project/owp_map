@@ -1,0 +1,13 @@
+<div class="card bg-dark border-primary h-100">
+    <img src="{{ asset('images/default.jpg') | imagine_filter('thumbnail') }}" class="card-img-top position-absolute opacity-20 h-100" alt="...">
+    <div class="card-body text-white z-index-10">
+        <h3 class="card-title">{{ map.title }}</h3>
+        <a href="{{ path('owp_map_show', {'slug': map.slug}) }}" class="btn btn-primary stretched-link">Télécharger la carte</a>
+        {% if is_granted('edit', map) %}
+            <a href="{{ path('admin_owp_owpmap_map_edit', {'id': map.id}) }}" class='btn btn-outline-secondary' href=""><i class="fa fa-edit"></i></a>
+            <button data-toggle="modal" data-target="#confirm-delete" data-href="{{ path('admin_owp_owpmap_map_delete', {'id': map.id}) }}" type="button" class="btn btn-outline-danger">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+        {% endif %}
+    </div>
+</div>

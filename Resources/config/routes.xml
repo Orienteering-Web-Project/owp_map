@@ -3,4 +3,7 @@
     <route id="owp_map_list" path="/map">
         <default key="_controller">Owp\OwpMap\Controller\MapController::list</default>
     </route>
+    <route id="owp_map_show" path="/map/{slug}">
+        <default key="_controller">Owp\OwpMap\Controller\MapController::show</default>
+    </route>
 </routes>
