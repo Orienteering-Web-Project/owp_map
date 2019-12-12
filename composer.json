@@ -10,15 +10,14 @@
         }
     ],
     "require": {
-        "owp/owp-core": "*",
-        "owp/owp-event": "*"
+        "owp/owp-core": "*"
     },
     "config": {
         "optimize-autoloader": true
     },
     "autoload": {
         "psr-4": {
-            "Owp\\OwpEntry\\": ""
+            "Owp\\OwpMap\\": ""
         }
     }
 }

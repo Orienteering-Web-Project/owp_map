@@ -7,7 +7,7 @@ services:
                             # The best practice is to be explicit about your dependencies anyway.
     Owp\OwpMap\:
         resource: '../../*'
-        exclude: '../../{DependencyInjection,Entity,Migrations,Tests,Resources,OwpEventBundle.php}'
+        exclude: '../../{DependencyInjection,Entity,Migrations,Tests,Resources,OwpMapBundle.php}'
 
     service.map:
         class: Owp\OwpMap\Service\MapService
@@ -15,6 +15,6 @@ services:
 
     admin.map:
         class: Owp\OwpMap\Admin\MapAdmin
-        arguments: [~, Owp\OwpEvent\Entity\Map, ~]
+        arguments: [~, Owp\OwpMap\Entity\Map, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, group: content, label: "Cartes" }
